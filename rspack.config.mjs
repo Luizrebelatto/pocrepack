@@ -33,4 +33,23 @@ export default Repack.defineRspackConfig({
     ],
   },
   plugins: [new Repack.RepackPlugin()],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        components: {
+          test: /[\\/]components[\\/]/,
+          name: 'components',
+          priority: 10,
+          reuseExistingChunk: true,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: 5,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 });
