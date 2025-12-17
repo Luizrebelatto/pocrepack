@@ -18,6 +18,14 @@ export default Repack.defineRspackConfig({
   resolve: {
     ...Repack.getResolveOptions(),
   },
+  output: {
+    // Configurar publicPath para chunks remotos
+    // Em produção, altere para a URL do seu servidor
+    publicPath: 'http://localhost:3000/bundles/',
+    // Nome dos chunks gerados
+    chunkFilename: '[name].chunk.bundle',
+    filename: 'index.bundle',
+  },
   module: {
     rules: [
       {
@@ -32,7 +40,15 @@ export default Repack.defineRspackConfig({
       ...Repack.getAssetTransformRules(),
     ],
   },
-  plugins: [new Repack.RepackPlugin()],
+  plugins: [
+    new Repack.RepackPlugin({
+      // Configuração do ChunkManager para carregamento remoto
+      output: {
+        enabled: true,
+        verbose: true,
+      },
+    }),
+  ],
   optimization: {
     splitChunks: {
       chunks: 'all',

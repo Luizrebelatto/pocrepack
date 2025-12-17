@@ -5,16 +5,13 @@
  * @format
  */
 
-import React, { Suspense } from 'react';
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
+import React from 'react';
+import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-
-// Code splitting - MyButton será carregado como um chunk separado
-const MyButton = React.lazy(() => import('./components/Button'));
+import RemoteButton from './components/RemoteButton';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,9 +29,7 @@ function AppContent() {
 
   return (
     <View style={styles.container}>
-      <Suspense fallback={<Text>Carregando...</Text>}>
-        <MyButton/>
-      </Suspense>
+      <RemoteButton />
     </View>
   );
 }
