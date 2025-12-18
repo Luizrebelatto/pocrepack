@@ -8,8 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "bundle:android": "react-native rspack-bundle --platform android --dev false --entry-file index.js --bundle-output bundles/index.bundle --assets-dest bundles",
-    "bundle:ios": "react-native rspack-bundle --platform ios --dev false --entry-file index.js --bundle-output bundles/index.bundle --assets-dest bundles",
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output bundles/index.bundle --assets-dest bundles",
+    "bundle:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output bundles/index.bundle --assets-dest bundles",
     "server": "node server.js",
     "setup:bundles": "mkdir -p bundles && npm run bundle:android"
   },
