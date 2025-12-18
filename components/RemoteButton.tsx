@@ -9,7 +9,7 @@ export default function RemoteButton() {
       fallback={
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#007AFF" />
-          <Text style={styles.loadingText}>Carregando componente...</Text>
+          <Text style={styles.loadingText}>loading component...</Text>
         </View>
       }
     >
