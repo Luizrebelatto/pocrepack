@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 
-const MyButton = React.lazy(() => import('./Button'));
+const MyButton = lazy(() => import('./Button'));
 
 export default function RemoteButton() {
   return (
